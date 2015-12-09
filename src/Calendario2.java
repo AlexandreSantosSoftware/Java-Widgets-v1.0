@@ -35,7 +35,7 @@ public class Calendario2 extends JPanel {
     String[] headers = {"Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"};
     String[] months =  {"Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"};
     
-    Color primaryColor = new Color(16, 23, 77);
+    private Color primaryColor = new Color(16, 23, 77);
     Color secondaryColor = new Color(42, 52, 147);
     Color primaryText = new Color(255, 255, 255);
     Color secondaryText = new Color(156, 166, 202);
