@@ -14,34 +14,34 @@ import org.imgscalr.Scalr;
 
 public class Calendario2 extends JPanel {
     
-    JLabel titulo = new JLabel();
-    JPanel primary = new JPanel();
-    JPanel secondary = new JPanel();
+    private JLabel titulo = new JLabel();
+    private JPanel primary = new JPanel();
+    private JPanel secondary = new JPanel();
     
-    int width = 350;
-    int height = 275;
-    int widthPrimary = 350;
-    int heightPrimary = 75;
-    int widthSecondary = 350;
-    int heightSecondary = 200;
-    int posX = 15;
-    int posY = 35;
-    int realDay;
-    int realMonth;
-    int realYear;
-    int nod;
-    int som;
+    private int width = 350;
+    private int height = 275;
+    private int widthPrimary = 350;
+    private int heightPrimary = 75;
+    private int widthSecondary = 350;
+    private int heightSecondary = 200;
+    private int posX = 15;
+    private int posY = 35;
+    private int realDay;
+    private int realMonth;
+    private int realYear;
+    private int nod;
+    private int som;
     
-    String[] headers = {"Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"};
-    String[] months =  {"Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"};
+    private String[] headers = {"Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"};
+    private String[] months =  {"Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"};
     
     private Color primaryColor = new Color(16, 23, 77);
-    Color secondaryColor = new Color(42, 52, 147);
-    Color primaryText = new Color(255, 255, 255);
-    Color secondaryText = new Color(156, 166, 202);
+    private Color secondaryColor = new Color(42, 52, 147);
+    private Color primaryText = new Color(255, 255, 255);
+    private Color secondaryText = new Color(156, 166, 202);
     
-    Font primaryFont = new Font("Century Gothic", Font.BOLD, 14);
-    Font secondaryFont = new Font("Century Gothic", Font.BOLD, 12);
+    private Font primaryFont = new Font("Century Gothic", Font.BOLD, 14);
+    private Font secondaryFont = new Font("Century Gothic", Font.BOLD, 12);
     
     public Calendario2() {
         setLayout(null);
