@@ -93,7 +93,9 @@ public class Calendario extends JPanel{
     public void setCorCabecalho(Color corCabecalho) { this.corCabecalho = corCabecalho; }
     public void setCorDias(Color corDias) { this.corDias = corDias; }
     public void setCorDiaAtual(Color corDiaAtual) { this.corDiaAtual = corDiaAtual; }
-
+    public void setPrimaryFont(Font primaryFont) { this.primaryFont = primaryFont; }
+    public void setSecondaryFont(Font secondaryFont) { this.secondaryFont = secondaryFont; }
+    
     public String[] getHeaders() { return headers; }
     public String[] getMonths() { return months; }
     public Color getCorTitulo() { return corTitulo; }
@@ -101,4 +103,6 @@ public class Calendario extends JPanel{
     public Color getCorCabecalho() { return corCabecalho; }
     public Color getCorDias() { return corDias; }
     public Color getCorDiaAtual() { return corDiaAtual; } 
+    public Font getPrimaryFont() { return primaryFont; }
+    public Font getSecondaryFont() { return secondaryFont; }
 }

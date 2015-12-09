@@ -1,10 +1,16 @@
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.GregorianCalendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import org.imgscalr.Scalr;
 
 public class Calendario2 extends JPanel {
     
@@ -33,7 +39,9 @@ public class Calendario2 extends JPanel {
     Color secondaryColor = new Color(42, 52, 147);
     Color primaryText = new Color(255, 255, 255);
     Color secondaryText = new Color(156, 166, 202);
-    Color currentBackground = new Color(215, 28, 97);
+    
+    Font primaryFont = new Font("Century Gothic", Font.BOLD, 14);
+    Font secondaryFont = new Font("Century Gothic", Font.BOLD, 12);
     
     public Calendario2() {
         setLayout(null);
@@ -51,14 +59,14 @@ public class Calendario2 extends JPanel {
         secondary.setBackground(secondaryColor);
         add(secondary);
         
-        titulo.setFont(new Font("Century Gothic", Font.BOLD, 14));
+        titulo.setFont(primaryFont);
         titulo.setForeground(primaryText);
         titulo.setBounds(posX+5, 10, width, 30);
         primary.add(titulo);
         
         for (String s : headers){
             JLabel label = new JLabel(s.toUpperCase(), JLabel.CENTER);
-            label.setFont(new Font("Century Gothic", Font.BOLD, 12));
+            label.setFont(secondaryFont);
             label.setForeground(secondaryText);
             label.setBounds(posX, posY, 40, 40);
             primary.add(label);
@@ -82,13 +90,19 @@ public class Calendario2 extends JPanel {
 
         for (int i=1; i<=nod; i++){
             JLabel label = new JLabel(String.valueOf(i), JLabel.CENTER);
-            label.setFont(new Font("Century Gothic", Font.BOLD, 12));
+            label.setFont(secondaryFont);
             if(i < realDay) {
                 label.setForeground(secondaryText);
             } else label.setForeground(primaryText);
             if(i == realDay) {
-                label.setHorizontalTextPosition(JLabel.CENTER);
-                label.setIcon(new ImageIcon(getClass().getResource("imagens/calendario2/currentBackground.png")));
+                try {
+                    label.setHorizontalTextPosition(JLabel.CENTER);
+                    BufferedImage Image = ImageIO.read(getClass().getResource("imagens/calendario2/currentBackground.png"));
+                    BufferedImage resizedImage = Scalr.resize(Image, Scalr.Method.QUALITY, Scalr.Mode.FIT_EXACT, 40, 30, Scalr.OP_ANTIALIAS);
+                    label.setIcon(new ImageIcon(resizedImage));
+                } catch (IOException ex) {
+                    Logger.getLogger(Calendario2.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
             label.setBounds(posX, posY, 40, 30);
             secondary.add(label);
@@ -99,4 +113,23 @@ public class Calendario2 extends JPanel {
             }
         }
     }
+    
+    public void setHeaders(String[] headers) { this.headers = headers; }
+    public void setMonths(String[] months) { this.months = months; }
+    public void setPrimaryFont(Font primaryFont) { this.primaryFont = primaryFont; }
+    public void setSecondaryFont(Font secondaryFont) { this.secondaryFont = secondaryFont; }
+    public void setPrimaryColor(Color primaryColor) { this.primaryColor = primaryColor; }
+    public void setSecondaryColor(Color secondaryColor) { this.secondaryColor = secondaryColor; }
+    public void setPrimaryText(Color primaryText) { this.primaryText = primaryText; }
+    public void setSecondaryText(Color secondaryText) { this.secondaryText = secondaryText; }
+    
+    
+    public String[] getHeaders() { return headers; }
+    public String[] getMonths() { return months; }
+    public Font getPrimaryFont() { return primaryFont; }
+    public Font getSecondaryFont() { return secondaryFont; }
+    public Color getPrimaryColor() { return primaryColor; }
+    public Color getSecondaryColor() { return secondaryColor; }
+    public Color getPrimaryText() { return primaryText; }
+    public Color getSecondaryText() { return secondaryText; }
 }
