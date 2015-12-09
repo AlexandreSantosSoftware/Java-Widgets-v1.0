@@ -48,7 +48,7 @@ public class Tradutor extends JPanel {
     Color extraColor = new Color(229, 45, 107);
     
     String clientId = "";
-    String clientSecret = "+ie7DWVbitji+Ej8rZM=";
+    String clientSecret = "";
     
     public Tradutor() {
         setLayout(null);
