@@ -28,6 +28,9 @@ public class Calendario extends JPanel{
     Color corDias = new Color(255, 255, 255);
     Color corDiaAtual = new Color(30, 39, 51);
     
+    Font primaryFont = new Font("Berlin Sans FB Demi", Font.BOLD, 26);
+    Font secondaryFont = new Font("Century Gothic", Font.BOLD, 14);
+    
     public Calendario() {
         setLayout(null);
         setBackground(corFundo);
@@ -35,7 +38,7 @@ public class Calendario extends JPanel{
         setMaximumSize(new Dimension(width, height));
         setMinimumSize(new Dimension(width, height));
 
-        titulo.setFont(new Font("Berlin Sans FB Demi", Font.BOLD, 26));
+        titulo.setFont(primaryFont);
         titulo.setForeground(corTitulo);
         titulo.setHorizontalAlignment(JLabel.CENTER);
         titulo.setBounds(0, 30, width, 30);
@@ -43,7 +46,7 @@ public class Calendario extends JPanel{
         
         for (String s : headers){
             JLabel label = new JLabel(s, JLabel.CENTER);
-            label.setFont(new Font("Century Gothic", Font.BOLD, 14));
+            label.setFont(secondaryFont);
             label.setForeground(corCabecalho);
             label.setBounds(posX, posY, 40, 40);
             add(label);
@@ -67,7 +70,7 @@ public class Calendario extends JPanel{
 
         for (int i=1; i<=nod; i++){
             JLabel label = new JLabel(String.valueOf(i), JLabel.CENTER);
-            label.setFont(new Font("Century Gothic", Font.BOLD, 14));
+            label.setFont(secondaryFont);
             label.setForeground(corDias);
             if(i == realDay) {
                 label.setOpaque(true);
